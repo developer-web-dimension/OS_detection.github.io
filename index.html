@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,6 +46,68 @@
             if (userAgent.includes("win")) return "Windows";
             if (userAgent.includes("mac")) return "MacOS";
             if (userAgent.includes("linux")) return "Linux";
+            if (userAgent.includes("android")) return "Android";
+            if (userAgent.includes("ios") || (platform === 'iphone') || (platform === 'ipad') || (platform === 'ipod')) return "iOS";
+            
+            return "Unknown OS";
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const osResult = document.getElementById('os-result');
+            osResult.textContent = getOS();
+        });
+    </script>
+</body>
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #os-result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>OS Detection</h1>
+        <p>Your operating system is:</p>
+        <div id="os-result">Detecting...</div>
+    </div>
+
+    <script>
+        function getOS() {
+            const userAgent = window.navigator.userAgent.toLowerCase();
+            const platform = window.navigator.platform.toLowerCase();
+            
             if (userAgent.includes("android")) return "Android";
             if (userAgent.includes("ios") || (platform === 'iphone') || (platform === 'ipad') || (platform === 'ipod')) return "iOS";
             
